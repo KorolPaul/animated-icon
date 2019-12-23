@@ -1,0 +1,22 @@
+body {
+    background: #000;;
+}
+
+svg {
+    height: 70vmin;
+}
+
+.outer-border {
+    fill: #fff;
+    mask: url(#mask);
+}
+
+.inner-border {
+    fill: #999;
+}
+
+.right,
+.left,
+.center {
+    fill: #fff;
+}
