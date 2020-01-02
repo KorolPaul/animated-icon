@@ -6,17 +6,47 @@ svg {
     height: 70vmin;
 }
 
-.outer-border {
-    fill: #fff;
-    mask: url(#mask);
-}
-
-.inner-border {
-    fill: #999;
-}
-
 .right,
 .left,
 .center {
     fill: #fff;
+}
+
+.borders polygon {
+    fill: #fff;
+}
+
+@for $border from 1 to 8 {
+    .borders polygon:nth-child(#{$border}) {
+        animation: appear-#{$border} 2s ease-in-out 2s * $border infinite;
+    }
+}
+
+@keyframes appear-1 {
+    0% {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    }
+    20% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    80% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    100% {
+        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    }
+}
+@keyframes appear-2 {
+    0% {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    }
+    20% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    80% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    100% {
+        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    }
 }
