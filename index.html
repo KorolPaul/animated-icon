@@ -9,11 +9,11 @@
 <body>
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 78.5 107.7" style="enable-background:new 0 0 78.5 107.7;" xml:space="preserve">
-        <g id="Layer_2">
-            <polygon class="right" points="54.3,29.3 69.5,29.3 69.5,65.7 58,77.3 47.4,66.8 54.3,59.9 	"/>
-            <polygon class="left" points="31.3,66.8 20.4,77.3 8.9,65.7 8.9,29.3 24.1,29.3 24.1,60 	"/>
-            <polygon class="center" points="25.1,7 53.9,7 69.6,23.2 47.2,23.2 47.2,88.1 39.4,96 31.5,88.1 31.5,23.2 9.1,23.2 	"/>
-        </g>
+        <defs>
+            <mask id="border-mask">
+                <polygon class="mask" points="39.5,1.9 56.7,1.9 75.8,20.9 75.8,68.4 39.2,104.6 2.5,68.4 2.5,21.4 22.3,1.9 	"/>
+            </mask>
+        </defs>
         <g class="borders" id="Layer_2">
             <polygon points="21.3,0 23.2,3.7 55.7,3.7 57.7,0 "/>
             <polygon points="78,20.1 73.7,21.7 55.7,3.7 57.7,0 "/>
@@ -23,6 +23,15 @@
             <polygon points="0.4,20.6 4.5,22.1 4.5,67.5 0.4,69.3 "/>
             <polygon points="21.3,0 23.2,3.7 4.5,22.1 0.4,20.6 "/>
         </g>
+        <g id="Layer_2">
+            <polygon class="right" points="54.3,29.3 69.5,29.3 69.5,65.7 58,77.3 47.4,66.8 54.3,59.9 	"/>
+            <polygon class="left" points="31.3,66.8 20.4,77.3 8.9,65.7 8.9,29.3 24.1,29.3 24.1,60 	"/>
+            <polygon class="center" points="25.1,7 53.9,7 69.6,23.2 47.2,23.2 47.2,88.1 39.4,96 31.5,88.1 31.5,23.2 9.1,23.2 	"/>
+        </g>
     </svg>
+    <script>
+        var path = document.querySelector('.mask');
+        console.log(path.getTotalLength());
+    </script>
 </body>
 </html>

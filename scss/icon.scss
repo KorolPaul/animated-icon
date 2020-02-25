@@ -1,5 +1,5 @@
 body {
-    background: #000;;
+    background: #000;
 }
 
 svg {
@@ -16,37 +16,27 @@ svg {
     fill: #fff;
 }
 
-@for $border from 1 to 8 {
-    .borders polygon:nth-child(#{$border}) {
-        animation: appear-#{$border} 2s ease-in-out 2s * $border infinite;
-    }
+.borders {
+    mask : url(#border-mask);
 }
 
-@keyframes appear-1 {
-    0% {
-        clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
-    }
-    20% {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-    80% {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-    100% {
-        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-    }
+.mask {  
+    stroke-width: 6px;
+    stroke: #fff;
+    stroke-dasharray: 286;
+    stroke-dashoffset: 286;
+    animation: mask-animation 5s ease-in-out infinite;
 }
-@keyframes appear-2 {
+
+
+@keyframes mask-animation {
     0% {
-        clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+        stroke-dashoffset: 286;
     }
-    20% {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-    80% {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    50% {
+        stroke-dashoffset: 500;
     }
     100% {
-        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+        stroke-dashoffset: 286;
     }
 }
