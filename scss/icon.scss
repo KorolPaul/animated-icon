@@ -6,6 +6,8 @@ svg {
     height: 70vmin;
 }
 
+$speed: 1;
+
 .right,
 .left,
 .center {
@@ -23,20 +25,60 @@ svg {
 .mask {  
     stroke-width: 6px;
     stroke: #fff;
-    stroke-dasharray: 286;
-    stroke-dashoffset: 286;
-    animation: mask-animation 5s ease-in-out infinite;
+    stroke-dasharray: 305%;
+    stroke-dashoffset: -305%;
+    animation: mask-animation #{$speed * 4}s ease-in-out #{$speed * 3}s infinite;
 }
 
+.center,
+.left,
+.right {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 1px;
+    stroke-dasharray: 290%;
+    stroke-dashoffset: -290%;
+    transform: scale(0.98);
+    transform-origin: center center;
+    animation: stroke-animation #{$speed * 3}s ease-in-out forwards,
+               fill-animation #{$speed * 3}s ease-in-out forwards;
+}
+
+.left,
+.right {
+    animation: stroke-animation #{$speed * 3}s ease-in-out #{$speed * .5}s forwards,
+               fill-animation #{$speed * 3}s ease-in-out forwards;
+}
 
 @keyframes mask-animation {
     0% {
-        stroke-dashoffset: 286;
+        stroke-dashoffset: -305%;
     }
     50% {
-        stroke-dashoffset: 500;
+        stroke-dashoffset: -610%;
     }
     100% {
-        stroke-dashoffset: 286;
+        stroke-dashoffset: -915%;
+    }
+}
+
+@keyframes stroke-animation {
+    0% {
+        stroke-dashoffset: -290%;
+    }
+    100% {
+        stroke-dashoffset: -580%;
+    }
+}
+
+@keyframes fill-animation {
+    0% {
+        fill: #fff0;
+    }
+    80% {
+        fill: #fff0;
+    }
+    100% {
+        fill: #fff;
     }
 }
