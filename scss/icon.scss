@@ -3,10 +3,11 @@ body {
 }
 
 svg {
-    height: 70vmin;
+    height: 50vmin;
+    margin: 0 1vw;
 }
 
-$speed: 1;
+$speed: .7;
 
 .right,
 .left,
@@ -14,12 +15,16 @@ $speed: 1;
     fill: #fff;
 }
 
-.borders polygon {
+.borders path {
     fill: #fff;
 }
 
 .borders {
     mask : url(#border-mask);
+
+    &__second {
+        mask : url(#border-mask2);
+    }
 }
 
 .mask {  
@@ -27,7 +32,11 @@ $speed: 1;
     stroke: #fff;
     stroke-dasharray: 305%;
     stroke-dashoffset: -305%;
-    animation: mask-animation #{$speed * 4}s ease-in-out #{$speed * 3}s infinite;
+    animation: mask-animation #{$speed * 4}s ease-in-out #{$speed * 2}s infinite;
+
+    &__second {
+        animation-delay: .1s;
+    }
 }
 
 .center,
@@ -35,7 +44,7 @@ $speed: 1;
 .right {
     fill: none;
     stroke: #fff;
-    stroke-width: 1px;
+    stroke-width: 0.5;
     stroke-dasharray: 290%;
     stroke-dashoffset: -290%;
     transform: scale(0.98);
@@ -75,7 +84,7 @@ $speed: 1;
     0% {
         fill: #fff0;
     }
-    80% {
+    50% {
         fill: #fff0;
     }
     100% {
