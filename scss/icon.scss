@@ -25,6 +25,9 @@ $speed: .7;
     &__second {
         mask : url(#border-mask2);
     }
+    &__reversed {
+        mask : url(#border-mask3);
+    }
 }
 
 .mask {  
@@ -36,6 +39,10 @@ $speed: .7;
 
     &__second {
         animation-delay: .1s;
+    }
+    &__reversed {
+        animation-delay: .1s;
+        animation-direction: reverse;
     }
 }
 
@@ -50,7 +57,7 @@ $speed: .7;
     transform: scale(0.98);
     transform-origin: center center;
     animation: stroke-animation #{$speed * 3}s ease-in-out forwards,
-               fill-animation #{$speed * 3}s ease-in-out forwards;
+               fill-animation #{$speed * 3}s ease-in-out  forwards;
 }
 
 .left,
@@ -84,7 +91,7 @@ $speed: .7;
     0% {
         fill: #fff0;
     }
-    50% {
+    45% {
         fill: #fff0;
     }
     100% {
