@@ -28,13 +28,17 @@ $speed: .7;
     &__reversed {
         mask : url(#border-mask3);
     }
+    &__static {
+        mask: none;
+    }
 }
 
 .mask {  
-    stroke-width: 6px;
+    stroke-width: 5px;
     stroke: #fff;
-    stroke-dasharray: 305%;
-    stroke-dashoffset: -305%;
+    stroke-dasharray: 286;
+    stroke-dashoffset: -286;
+    stroke-linecap: square;
     animation: mask-animation #{$speed * 4}s ease-in-out #{$speed * 2}s infinite;
 
     &__second {
@@ -66,15 +70,29 @@ $speed: .7;
                fill-animation #{$speed * 3}s ease-in-out forwards;
 }
 
+// 3d
+.icon3d {
+    //perspective: 500;
+}
+.core {
+    animation: rotation #{$speed * 3}s ease-in-out #{$speed * .5}s infinite;
+    
+    transform-origin: center center;
+
+    polygon {
+        fill: #fff;
+    }
+}
+
 @keyframes mask-animation {
     0% {
-        stroke-dashoffset: -305%;
+        stroke-dashoffset: -286;
     }
     50% {
-        stroke-dashoffset: -610%;
+        stroke-dashoffset: -572;
     }
     100% {
-        stroke-dashoffset: -915%;
+        stroke-dashoffset: -858;
     }
 }
 
@@ -96,5 +114,17 @@ $speed: .7;
     }
     100% {
         fill: #fff;
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotateY(0);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+    100% {
+       transform: rotateY(360deg);
     }
 }
