@@ -66,11 +66,14 @@ $speed: 1;
 }
 
 // 3d
+.icon-wrapper {
+    width: 300px;
+}
 .icon {
     display: inline-block;
     position: relative;
-    perspective: 500px;
-    width: 4    00px;
+    perspective: 7000px;
+    width: 100%;
 
     svg {
         width: 100%;
@@ -82,7 +85,6 @@ $speed: 1;
     right: 0;
     height: 100%;
     transform-origin: center center center;
-    perspective: 5000px;
     transform-style: preserve-3d;
     animation: rotation #{$speed * 3}s linear infinite;
 
