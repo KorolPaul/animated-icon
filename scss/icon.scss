@@ -2,7 +2,7 @@ body {
     background: #000;
 }
 
-$speed: .7;
+$speed: 1;
 
 .right,
 .left,
@@ -84,7 +84,7 @@ $speed: .7;
     transform-origin: center center center;
     perspective: 5000px;
     transform-style: preserve-3d;
-    animation: rotation #{$speed * 3}s linear #{$speed * .5}s infinite;
+    animation: rotation #{$speed * 3}s linear infinite;
 
     div  {
         box-shadow: 0 0 0 1px #555 inset;
@@ -98,6 +98,7 @@ $speed: .7;
 
     polygon {
         fill: #fff;
+        animation: fillShadow #{$speed * 3}s linear #{$speed * 1}s infinite;
     }
 }
 
@@ -108,7 +109,7 @@ $speed: .7;
     transform: translateZ(-7px);
 
     polygon {
-        fill: #fff;
+        animation-delay: #{$speed * 3 * 2}s;
     }
 }
 
@@ -121,10 +122,12 @@ $speed: .7;
     background-color: #fff;
 
     &__left {
+        animation: bgShadow #{$speed * 3}s linear #{$speed * .5}s infinite;
         transform: translate3d(calc(-50% + 214%), 14px, 0) rotateY(90deg);
-
+        
     }
     &__right {
+        animation: bgShadow #{$speed * 3}s linear #{$speed * 3 * 1.5}s infinite;
         transform: translate3d(calc(-50% - 211%), 14px, 0) rotateY(90deg);
     }
 }
@@ -297,5 +300,29 @@ $speed: .7;
     }
     100% {
        transform: rotateY(360deg);
+    }
+}
+
+@keyframes fillShadow {
+    0% {
+        fill: #999;
+    }
+    50% {
+        fill: #fff;
+    }
+    100% {
+        fill: #999;
+    }
+}
+
+@keyframes bgShadow {
+    0% {
+        background-color: #999;
+    }
+    50% {
+        background-color: #fff;
+    }
+    100% {
+        background-color: #999;
     }
 }
