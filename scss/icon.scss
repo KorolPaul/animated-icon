@@ -2,11 +2,6 @@ body {
     background: #000;
 }
 
-svg {
-    height: 50vmin;
-    margin: 0 1vw;
-}
-
 $speed: .7;
 
 .right,
@@ -71,16 +66,192 @@ $speed: .7;
 }
 
 // 3d
-.icon3d {
-    //perspective: 500;
+.icon {
+    display: inline-block;
+    position: relative;
+    perspective: 500px;
+    width: 4    00px;
+
+    svg {
+        width: 100%;
+    }
 }
-.core {
-    animation: rotation #{$speed * 3}s ease-in-out #{$speed * .5}s infinite;
-    
-    transform-origin: center center;
+.icon3d {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    transform-origin: center center center;
+    perspective: 5000px;
+    transform-style: preserve-3d;
+    animation: rotation #{$speed * 3}s linear #{$speed * .5}s infinite;
+
+    div  {
+        box-shadow: 0 0 0 1px #555 inset;
+    }
+}
+.front,
+.back {
+    position: absolute;
+    top: 0;
+    left: 0;
 
     polygon {
         fill: #fff;
+    }
+}
+
+.front {
+    transform: translateZ(7px);
+}
+.back {
+    transform: translateZ(-7px);
+
+    polygon {
+        fill: #fff;
+    }
+}
+
+.center-edge {
+    width: 14px;
+    height: 61.4%;
+    position: absolute;
+    top: 17%;
+    left: 50%;
+    background-color: #fff;
+
+    &__left {
+        transform: translate3d(calc(-50% + 214%), 14px, 0) rotateY(90deg);
+
+    }
+    &__right {
+        transform: translate3d(calc(-50% - 211%), 14px, 0) rotateY(90deg);
+    }
+}
+
+.center-top-edge {
+    width: 14px;
+    height: 21.1%;
+    position: absolute;
+    top: 3.33%;
+    left: 50%;
+    background-color: #fff;
+
+    &__left {
+        transform: translate3d(calc(-50% + 613%), 0, 0) rotateY(90deg) rotateX(45deg);
+
+    }
+    &__right {
+        transform: translate3d(calc(-50% - 601%), 0, 0) rotateY(90deg) rotateX(-45deg);
+    }
+}
+
+.center-bottom-edge {
+    width: 14px;
+    height: 10.3%;
+    position: absolute;
+    bottom: 9.9%;
+    left: 50%;
+    background-color: #fff;
+
+    &__left {
+        transform: translate3d(calc(-50% + 111%), 3%, 0) rotateY(90deg) rotateX(-45deg);
+
+    }
+    &__right {
+        transform: translate3d(calc(-50% - 105%), 3%, 0) rotateY(90deg) rotateX(45deg);
+    }
+}
+
+.center-ceil-edge {
+    width: 14px;
+    height: 56.15%;
+    position: absolute;
+    top: -6.57%;
+    left: 50%;
+    background-color: #fff;
+    transform: translate3d(-50%, 0, 0) rotateY(90deg) rotateX(90deg);
+}
+
+.wing-edge-outer {
+    width: 14px;
+    height: 33.7%;
+    position: absolute;
+    top: 23.75%;
+    left: 50%;
+    background-color: #fff;
+
+    &__left {
+        transform: translate3d(calc(-50% + 827%), 14px, 0) rotateY(90deg);
+
+    }
+    &__right {
+        transform: translate3d(calc(-50% - 827%), 14px, 0) rotateY(90deg);
+    }
+}
+
+.wing-edge-bottom-outer {
+    width: 14px;
+    height: 15.2%;
+    position: absolute;
+    bottom: 26.17%;
+    left: 50%;
+    background-color: #fff;
+
+    &__left {
+        transform: translate3d(calc(-50% + 670%), 0, 0) rotateY(90deg) rotateX(-45deg);
+    }
+    &__right {
+        transform: translate3d(calc(-50% - 670%), 0, 0) rotateY(90deg) rotateX(45deg);
+    }
+}
+
+.wing-edge-bottom-inner {
+    width: 14px;
+    height: 13.9%;
+    position: absolute;
+    bottom: 26.17%;
+    left: 50%;
+    background-color: #fff;
+
+    &__left {
+        transform: translate3d(calc(-50% + 369%), 0, 0) rotateY(90deg) rotateX(45deg);
+    }
+    &__right {
+        transform: translate3d(calc(-50% - 366%), 0, 0) rotateY(90deg) rotateX(-46deg);
+    }
+}
+
+.wing-edge-corner-inner {
+    width: 14px;
+    height: 10%;
+    position: absolute;
+    bottom: 36.43%;
+    left: 50%;
+    background-color: #fff;
+
+    &__left {
+        transform: translate3d(calc(-50% + 328%), 0, 0) rotateY(90deg) rotateX(-46deg);
+    }
+    &__right {
+        transform: translate3d(calc(-50% - 328%), 0, 0) rotateY(90deg) rotateX(46deg);
+    }
+}
+
+.wing-edge-inner {
+    width: 14px;
+    height: 30%;
+    position: absolute;
+    top: 23.75%;
+    left: 50%;
+    background-color: #fff;
+
+    &__left {
+        transform: translate3d(calc(-50% + 414%), 14px, 0) rotateY(90deg);
+
+    }
+    &__right {
+        transform: translate3d(calc(-50% - 414%), 14px, 0) rotateY(90deg);
     }
 }
 
